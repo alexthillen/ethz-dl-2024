@@ -63,11 +63,11 @@ Feature activation of last fully connected layer of model 1 (left),  model 2 (ce
 
 ### Vanilla Training
 
-![Vanilla Training](./assets/vanilla_training.png)
+![Vanilla Training](./assets/final_accuracies_nr_epochs_8_buffersize_3000_saliency_lambda_0.0_samples_per_class_0_activation_preserving_noise_std_0.1_saliency_threshold_0.5.png)
 
 ### Activation Preserving Loss
 
-![Activation Preserving Loss : $\lambda=1$ and $n_{\text{samples per class} = 5}$](./assets/final_accuracies_nr_epochs_8_buffersize_3000_saliency_lambda_0.2_samples_per_class_5_activation_preserving_0.1_0.5.png)
+![Activation Preserving Loss : $\lambda=1$ and $n_{\text{samples per class} = 5}$](./assets/final_accuracies_nr_epochs_8_buffersize_3000_saliency_lambda_0.2_samples_per_class_5_activation_preserving_noise_std_0.1_saliency_threshold_0.5.png)
 
 ### Saliency Preserving Loss
 
