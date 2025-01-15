@@ -1,0 +1,22 @@
+# PyTorch and related libraries for GPU support
+torch
+torchvision
+torchmetrics
+wandb
+pyyaml
+tqdm
+
+# Jupyter environment setup
+jupyterlab
+ipykernel
+ipywidgets
+
+# Data science and visualization
+matplotlib
+pandas
+numpy
+scikit-learn
+
+
+#
+loguru
