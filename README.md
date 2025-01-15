@@ -28,11 +28,21 @@ pip install -r requirements.txt
 
 ## Running and Training
 
+#### Baseline
 ```bash
-python ./train.py --loss_type saliency_preserving --num_epochs 8 --saliency_lambda 70 --num_samples_per_class 3 --noise_std 0.075 --saliency_threshold 0.5
+python ./train.py --loss_type activation_preserving --num_epochs 8 --saliency_lambda 0 --num_samples_per_class 0
+```
+#### Saliency Preserving Loss
+```bash
+python ./train.py --loss_type saliency_preserving --num_epochs 8 --saliency_lambda 65 --num_samples_per_class 6 --noise_std 0.09 --saliency_threshold 0.6
 ```
 
-The above command trains the model in deterministic way.
+#### Activation Preserving Loss
+```bash
+python ./train.py --loss_type activation_preserving --num_epochs 8 --saliency_lambda 0.2 --num_samples_per_class 5
+```
+
+The above commands train the model in deterministic way.
 Options for the loss type are `activation_preserving` and `saliency_preserving`.
 Number of samples per class describes the number of samples per class from previous tasks that are used for computing the novel loss, namely `activation_preserving` or `saliency_preserving`.
 
@@ -61,4 +71,4 @@ Feature activation of last fully connected layer of model 1 (left),  model 2 (ce
 
 ### Saliency Preserving Loss
 
-![](./assets/final_accuracies_nr_epochs_8_buffersize_3000_saliency_lambda_65.0_samples_per_class_6_saliency_preserving_0.1_0.6.png)
+![](./assets/final_accuracies_nr_epochs_8_buffersize_3000_saliency_lambda_65.0_samples_per_class_6_saliency_preserving_noise_std_0.09_saliency_threshold_0.6.png)

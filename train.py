@@ -355,13 +355,17 @@ def train_sequential(model, train_subsets, test_subsets, tasks):
 
 def plot_final_accuracies(test_acc_per_model, title="Test Accuracies"):
     plt.figure(figsize=(10, 6))
+
+    # Use a larger font size for better legibility
+    plt.rcParams.update({"font.size": 14})
+
     for task_idx in range(len(test_acc_per_model[0])):
         task_accuracies = [acc[task_idx] for acc in test_acc_per_model]
         plt.plot(
             range(1, len(test_acc_per_model) + 1),
             task_accuracies,
             marker="o",
-            label=f"Accuracy on Task {task_idx + 1}",
+            label=f"Task {task_idx + 1}",
         )
 
     # Calculate the average accuracy at the last time step
@@ -370,18 +374,20 @@ def plot_final_accuracies(test_acc_per_model, title="Test Accuracies"):
         y=avg_accuracy_last_step,
         color="r",
         linestyle="--",
-        label=f"Avg Accuracy at Last Step: {avg_accuracy_last_step:.2f}%",
+        label=f"Avg at Last Step: {avg_accuracy_last_step:.2f}%",
     )
 
     plt.xlabel("Training Task")
     plt.ylabel("Accuracy (%)")
     plt.title(title)
-    plt.legend()
+    plt.legend(loc="lower left")
     plt.grid(True)
-    # plt.show()
+
+    plt.xticks(ticks=range(1, len(test_acc_per_model) + 1))
+
     # Save the plot
-    plot_path = f"final_accuracies_nr_epochs_{HYPERPARAMETERS['num_epochs']}_buffersize_{HYPERPARAMETERS['buffer_size']}_saliency_lambda_{HYPERPARAMETERS['saliency_lambda']}_samples_per_class_{HYPERPARAMETERS['num_samples_per_class']}_{HYPERPARAMETERS['loss_type']}_{HYPERPARAMETERS['noise_std']}_{HYPERPARAMETERS['saliency_threshold']}.png"
-    plt.savefig(plot_path)
+    plot_path = f"final_accuracies_nr_epochs_{HYPERPARAMETERS['num_epochs']}_buffersize_{HYPERPARAMETERS['buffer_size']}_saliency_lambda_{HYPERPARAMETERS['saliency_lambda']}_samples_per_class_{HYPERPARAMETERS['num_samples_per_class']}_{HYPERPARAMETERS['loss_type']}_noise_std_{HYPERPARAMETERS['noise_std']}_saliency_threshold_{HYPERPARAMETERS['saliency_threshold']}.png"
+    plt.savefig(plot_path, format="png", dpi=300)
     print(f"Plot saved to {plot_path}")
 
 
